@@ -1,0 +1,20 @@
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Editors
+export EDITOR="flow"
+export VISUAL="flow"
+
+# Prompt
+prompt() {
+  local dir="${PWD/#$HOME/\~}"
+  PS1="❯ ${dir}\n❯ "
+}
+PROMPT_COMMAND="prompt"
+
+# Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Paths
+export PATH="$HOME/.local/bin:$PATH"

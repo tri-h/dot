@@ -1,0 +1,152 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "spacing": 0,
+  "height": 32,
+  "width": 0,
+  "modules-left": [
+    "custom/launcher",
+    "niri/workspaces",
+    "mpris",
+    "custom/recorder"
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "group/power",
+    "bluetooth",
+    "wireplumber",
+    "backlight",
+    "network",
+    "cpu",
+    "memory",
+    "temperature",
+    "battery"
+  ],
+  "niri/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": "󱓻"
+    }
+  },
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "power-drawer",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/quit", "custom/reboot", "custom/shutdown"]
+  },
+  "cpu": {
+    "interval": 5,
+    "format": ""
+  },
+  "memory": {
+    "interval": 5,
+    "format": "",
+    "tooltip-format": "Memory: {used:0.1f}/{total:0.1f} GiB"
+  },
+  "temperature": {
+    "critical-threshold": 75,
+    "format": "",
+    "tooltip-format": "Temperature: {temperatureC}°C"
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M}",
+    "format-alt": "{:%H:%M:%S}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+  "network": {
+    "interval": 5,
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Network disconnected",
+    "on-click": "footclient -e nmtui"
+  },
+  "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "",
+    "tooltip-format": "Brightness: {percent}%"
+  },
+  "battery": {
+    "interval": 5,
+    "format": "{icon}",
+    "format-alt": "{icon} {capacity}%",
+    "format-charging": "{icon}",
+    "format-icons": {
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+    },
+    "tooltip-format": "Battery: {capacity}%\nHealth: {health}%",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-off": "",
+    "format-disabled": "",
+    "format-no-controller": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "footclient -e bluetui"
+  },
+  "wireplumber": {
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", ""],
+      "headphone": "",
+      "headset": ""
+    },
+    "tooltip-format": "Volume: {volume}%",
+    "scroll-step": 2,
+    "on-click": "footclient -e wiremix"
+  },
+  "mpris": {
+    "format": "{status_icon}",
+    "status-icons": {
+      "playing": "󰏤",
+      "paused": "󰐊",
+      "stopped": "󰓛"
+    },
+    "tooltip-format": "{artist} - {title}"
+  },
+  "custom/launcher": {
+    "format": "",
+    "tooltip-format": "App launcher",
+    "on-click": "fuzzel"
+  },
+  "custom/recorder": {
+    "interval": 1,
+    "format": "{}",
+    "tooltip-format": "Screen recording",
+    "exec": "echo ''",
+    "exec-if": "pgrep wf-recorder",
+    "on-click": "pkill -INT wf-recorder"
+  },
+  "custom/quit": {
+    "format": "󰍃",
+    "tooltip-format": "Quit",
+    "on-click": "niri msg action quit"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip-format": "Reboot",
+    "on-click": "systemctl reboot"
+  },
+  "custom/shutdown": {
+    "format": "󰐥",
+    "tooltip-format": "Shutdown",
+    "on-click": "systemctl poweroff"
+  }
+}

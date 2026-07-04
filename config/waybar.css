@@ -1,0 +1,36 @@
+@define-color background #000000;
+@define-color foreground #ffffff;
+
+* {
+  background-color: @background;
+  color: @foreground;
+
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: 'GeistMono Nerd Font';
+  font-size: 14px;
+}
+
+#workspaces button {
+  all: initial;
+  margin: 0 8px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#battery, #cpu, #memory, #temperature,
+#network, #backlight, #wireplumber, #bluetooth, #mpris,
+#custom-launcher, #custom-recorder, #custom-quit, #custom-reboot, #custom-shutdown {
+  margin: 0 10px;
+}
+
+tooltip {
+  padding: 2px;
+}
+
+.hidden {
+  opacity: 0;
+}

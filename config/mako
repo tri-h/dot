@@ -1,0 +1,17 @@
+font=sans-serif 10
+background-color=#000000
+text-color=#ffffff
+width=320
+outer-margin=20,10
+padding=10
+border-color=#333333
+default-timeout=5000
+group-by=app-name,summary,body
+anchor=bottom-right
+
+[mode=do-not-disturb]
+invisible=true
+
+[urgency=critical]
+default-timeout=0
+layer=overlay

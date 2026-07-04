@@ -1,0 +1,8 @@
+[user]
+name = "Tri Hartanto"
+
+[ui]
+default-command = "log"
+
+[git]
+colocate = false
